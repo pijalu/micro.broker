@@ -9,6 +9,8 @@ import (
 
 	micro "github.com/micro/go-micro"
 	"github.com/pijalu/micro.broker/proto"
+
+	_ "github.com/micro/go-plugins/broker/rabbitmq"
 )
 
 func main() {

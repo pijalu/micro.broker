@@ -8,6 +8,10 @@ import (
 
 	micro "github.com/micro/go-micro"
 	"github.com/micro/go-micro/metadata"
+	"github.com/micro/go-micro/server"
+
+	_ "github.com/micro/go-plugins/broker/rabbitmq"
+
 	"github.com/pijalu/micro.broker/proto"
 )
 
@@ -25,7 +29,11 @@ func main() {
 		micro.Name("go.micro.sub.BrokerTes"))
 	service.Init()
 
-	micro.RegisterSubscriber("topic.events", service.Server(), new(sub))
+	option := func(o *server.SubscriberOptions) {
+		o.Queue = "myQueue"
+	}
+
+	micro.RegisterSubscriber("topic.events", service.Server(), new(sub), option)
 
 	if err := service.Run(); err != nil {
 		log.Panicf("Error: %+v", err)
