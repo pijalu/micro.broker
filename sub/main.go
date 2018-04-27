@@ -11,6 +11,7 @@ import (
 	"github.com/micro/go-micro/server"
 
 	_ "github.com/micro/go-plugins/broker/rabbitmq"
+	_ "github.com/pijalu/go-plugins/broker/stomp"
 
 	"github.com/pijalu/micro.broker/proto"
 )

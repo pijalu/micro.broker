@@ -11,6 +11,7 @@ import (
 	"github.com/pijalu/micro.broker/proto"
 
 	_ "github.com/micro/go-plugins/broker/rabbitmq"
+	_ "github.com/pijalu/go-plugins/broker/stomp"
 )
 
 func main() {
